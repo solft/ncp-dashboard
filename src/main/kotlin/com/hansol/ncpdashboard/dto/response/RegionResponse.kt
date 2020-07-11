@@ -1,0 +1,12 @@
+package com.hansol.ncpdashboard.dto.response
+
+import com.hansol.ncpdashboard.model.Region
+
+data class RegionResponse(
+        val requestId: String,
+        val returnCode: String,
+        val returnMessage: String,
+        val totalRows: Long,
+        val regionList: List<Region>
+) {
+}
