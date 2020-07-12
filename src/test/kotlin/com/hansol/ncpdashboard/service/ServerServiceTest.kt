@@ -25,10 +25,10 @@ internal class ServerServiceTest {
     }
 
     @Test
-    fun `getRegonList Test`() {
+    fun `getRegionList Test`() {
         val regionResponse = serverService.getRegionList()
 
-        println(regionResponse)
+        println(objectMapper.writeValueAsString(regionResponse))
     }
 
     @Test
