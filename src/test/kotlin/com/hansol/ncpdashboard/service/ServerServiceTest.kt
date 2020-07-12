@@ -1,5 +1,8 @@
 package com.hansol.ncpdashboard.service
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.hansol.ncpdashboard.dto.response.RegionResponse
+import com.hansol.ncpdashboard.model.Region
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -10,11 +13,26 @@ internal class ServerServiceTest {
     @Autowired
     lateinit var serverService: ServerService
 
+    @Autowired
+    lateinit var objectMapper: ObjectMapper
+
 
     @Test
     fun `getRegonList Test`() {
         val regionResponse = serverService.getRegionList()
 
         println(regionResponse)
+    }
+
+    @Test
+    fun `serilize Test`() {
+        val region1 = Region("Korea", "KR", "한국")
+        val region2 = Region("usa", "US", "미국")
+        val regions = listOf(region1, region2)
+        val regionResponse = RegionResponse("reqId", "rtrn_cd", "rtrn_msg", 10L, regions)
+
+        val writeValueAsString = objectMapper.writeValueAsString(regionResponse)
+
+        println(writeValueAsString)
     }
 }
