@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonRootName
 import com.hansol.ncpdashboard.model.Region
 
 @JsonRootName(value = "getRegionListResponse")
-data class RegionResponse(
+data class RegionListResponse(
         val requestId: String,
         val returnCode: String,
         val returnMessage: String,
