@@ -26,6 +26,20 @@ class NcpWebClient(
                 .block()
     }
 
+    fun <T> post(uri: String, body: Any, type: Class<T>): T? {
+        val timestamp = System.currentTimeMillis()
+        val jsonUri = "$uri?responseFormatType=JSON"
+        return webClient.post()
+                .uri(jsonUri)
+                .header(X_NCP_APIGW_TIMESTMAP, timestamp.toString())
+                .header(X_NCP_IAM_ACCESS_KEY, ncpProperties.accessKey)
+                .header(X_NCP_APIGW_SIGNATURE_V2, signatureGenerator.makeSignature(HttpMethod.POST.name, jsonUri, timestamp))
+                .bodyValue(body)
+                .retrieve()
+                .bodyToMono(type)
+                .block()
+    }
+
     companion object {
         const val X_NCP_APIGW_TIMESTMAP = "x-ncp-apigw-timestamp"
         const val X_NCP_IAM_ACCESS_KEY= "x-ncp-iam-access-key"

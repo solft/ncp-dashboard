@@ -1,11 +1,13 @@
 package com.hansol.ncpdashboard.service
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.hansol.ncpdashboard.dto.request.ServerProductListRequest
 import com.hansol.ncpdashboard.dto.response.RegionListResponse
 import com.hansol.ncpdashboard.model.Region
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import kotlin.reflect.full.memberProperties
 
 @SpringBootTest
 internal class ServerServiceTest {
@@ -25,6 +27,15 @@ internal class ServerServiceTest {
     }
 
     @Test
+    fun `getServerProductList Test`() {
+        // example : SPSW0LINUX000046, SPSW0LINUX000045, SPSW0LINUX000031
+        val serverProductListRequest = ServerProductListRequest(serverImageProductCode = "SPSW0LINUX000046")
+        val serverProductListResponse = serverService.getServerProductList(serverProductListRequest)
+
+        println(serverProductListResponse)
+    }
+
+    @Test
     fun `getRegionList Test`() {
         val regionResponse = serverService.getRegionList()
 
@@ -41,5 +52,25 @@ internal class ServerServiceTest {
         val writeValueAsString = objectMapper.writeValueAsString(regionResponse)
 
         println(writeValueAsString)
+    }
+
+    @Test
+    fun `objectMapper test`() {
+        val serverProductListRequest = ServerProductListRequest(serverImageProductCode = "SPSW0LINUX000046")
+
+        val string = objectMapper.writeValueAsString(serverProductListRequest)
+
+        println(string)
+    }
+
+    @Test
+    fun `queryString test`() {
+        val serverProductListRequest = ServerProductListRequest(serverImageProductCode = "SPSW0LINUX000046")
+
+
+        for (prop in ServerProductListRequest::class.memberProperties) {
+            println("${prop.name}, ${prop.get(serverProductListRequest)}")
+        }
+
     }
 }
