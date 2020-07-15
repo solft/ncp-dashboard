@@ -20,14 +20,14 @@ internal class ServerServiceTest {
 
 
     @Test
-    fun `getServerImageProductList Test`() {
+    fun getServerImageProductListTest() {
         val serverImageProductList = serverService.getServerImageProductList()
 
         println(serverImageProductList)
     }
 
     @Test
-    fun `getServerProductList Test`() {
+    fun getServerProductListTest() {
         // example : SPSW0LINUX000046, SPSW0LINUX000045, SPSW0LINUX000031
         val serverProductListRequest = ServerProductListRequest(serverImageProductCode = "SPSW0LINUX000046")
         val serverProductListResponse = serverService.getServerProductList(serverProductListRequest)

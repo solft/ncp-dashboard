@@ -6,10 +6,10 @@ import kotlin.reflect.full.memberProperties
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 data class ServerProductListRequest(
         val serverImageProductCode: String,
-        val exclusionProductCode: String? = "",
-        val productCode: String? = "",
-        val generationCode: String? = "", // [G1, G2]
-        val regionNo: String? = "",
-        val zoneNo: String? = "",
-        val internetLineTypeCode: String? = "" // [PUBLC, GLBL]
+        val exclusionProductCode: String? = null,
+        val productCode: String? = null,
+        val generationCode: String? = null, // [G1, G2]
+        val regionNo: String? = null,
+        val zoneNo: String? = null,
+        val internetLineTypeCode: String? = null // [PUBLC, GLBL]
 )

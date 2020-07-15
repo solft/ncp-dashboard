@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonRootName
 import com.hansol.ncpdashboard.model.Product
 
 @JsonRootName(value = "getServerProductListResponse")
-class ServerProductListResponse (
+data class ServerProductListResponse (
         val requestId: String,
         val returnCode: String,
         val returnMessage: String,
