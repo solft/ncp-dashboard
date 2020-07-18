@@ -1,7 +1,6 @@
 package com.hansol.ncpdashboard.dto.request
 
 import com.fasterxml.jackson.annotation.JsonInclude
-import kotlin.reflect.full.memberProperties
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 data class ServerProductListRequest(

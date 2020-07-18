@@ -15,7 +15,7 @@ class NcpWebClient(
 
     fun <T> get(uri: String, type: Class<T>, queryString: String = ""): T? {
         val timestamp = System.currentTimeMillis()
-        val jsonUri = "$uri?responseFormatType=JSON&$queryString"
+        val jsonUri = "$uri?responseFormatType=JSON$queryString"
         return webClient.get()
                 .uri(jsonUri)
                 .header(X_NCP_APIGW_TIMESTMAP, timestamp.toString())
