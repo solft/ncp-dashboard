@@ -4,6 +4,7 @@ import com.hansol.ncpdashboard.core.NcpWebClient
 import com.hansol.ncpdashboard.core.utils.queryStringify
 import com.hansol.ncpdashboard.core.utils.queryStringifyWithList
 import com.hansol.ncpdashboard.dto.request.CreateServerInstancesRequest
+import com.hansol.ncpdashboard.dto.request.ServerInstanceRequest
 import com.hansol.ncpdashboard.dto.request.ServerProductListRequest
 import com.hansol.ncpdashboard.dto.response.*
 import org.springframework.stereotype.Service
@@ -20,6 +21,8 @@ class ServerService(
     fun getRegionList() = client.get("$SERVER_V2/getRegionList", RegionListResponse::class.java)
 
     fun getInitScriptList() = client.get("$SERVER_V2/getInitScriptList", InitScriptListResponse::class.java)
+
+    fun getServerInstanceList(serverInstanceRequest: ServerInstanceRequest) = client.get("$SERVER_V2/getServerInstanceList", ServerInstanceListResponse::class.java, serverInstanceRequest.queryStringifyWithList())
 
     fun createServerInstances(createServerInstancesRequest: CreateServerInstancesRequest) = client.get("$SERVER_V2/createServerInstances", CreateServerInstancesResponse::class.java, createServerInstancesRequest.queryStringifyWithList())
 

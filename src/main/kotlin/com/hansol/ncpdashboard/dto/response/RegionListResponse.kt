@@ -8,7 +8,7 @@ data class RegionListResponse(
         val requestId: String,
         val returnCode: String,
         val returnMessage: String,
-        val totalRows: Long,
+        val totalRows: Int,
         val regionList: List<Region>
 ) {
 }

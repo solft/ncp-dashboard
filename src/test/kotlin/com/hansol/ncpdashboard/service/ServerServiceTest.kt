@@ -2,6 +2,7 @@ package com.hansol.ncpdashboard.service
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.hansol.ncpdashboard.dto.request.CreateServerInstancesRequest
+import com.hansol.ncpdashboard.dto.request.ServerInstanceRequest
 import com.hansol.ncpdashboard.dto.request.ServerProductListRequest
 import com.hansol.ncpdashboard.dto.response.RegionListResponse
 import com.hansol.ncpdashboard.model.Region
@@ -37,6 +38,13 @@ internal class ServerServiceTest {
     }
 
     @Test
+    fun getServerInstanceListTest() {
+        val serverInstanceList = serverService.getServerInstanceList(ServerInstanceRequest())
+
+        println(serverInstanceList)
+    }
+
+    @Test
     fun createServerTest() {
         // Server Product example : SPSVRHICPU000001, SPSVRHICPU000002
         val createServerInstancesRequest = CreateServerInstancesRequest(serverImageProductCode = "SPSW0LINUX000046", serverProductCode = "SPSVRSTAND000072", serverName = "object-test")
@@ -64,7 +72,7 @@ internal class ServerServiceTest {
         val region1 = Region("Korea", "KR", "한국")
         val region2 = Region("usa", "US", "미국")
         val regions = listOf(region1, region2)
-        val regionResponse = RegionListResponse("reqId", "rtrn_cd", "rtrn_msg", 10L, regions)
+        val regionResponse = RegionListResponse("reqId", "rtrn_cd", "rtrn_msg", 10, regions)
 
         val writeValueAsString = objectMapper.writeValueAsString(regionResponse)
 
