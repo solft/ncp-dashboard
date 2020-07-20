@@ -53,6 +53,13 @@ internal class ServerServiceTest {
     }
 
     @Test
+    fun getInitScriptListTest() {
+        val initScriptListResponse = serverService.getInitScriptList()
+
+        println(objectMapper.writeValueAsString(initScriptListResponse))
+    }
+
+    @Test
     fun `serilize Test`() {
         val region1 = Region("Korea", "KR", "한국")
         val region2 = Region("usa", "US", "미국")

@@ -5,10 +5,7 @@ import com.hansol.ncpdashboard.core.utils.queryStringify
 import com.hansol.ncpdashboard.core.utils.queryStringifyWithList
 import com.hansol.ncpdashboard.dto.request.CreateServerInstancesRequest
 import com.hansol.ncpdashboard.dto.request.ServerProductListRequest
-import com.hansol.ncpdashboard.dto.response.CreateServerInstancesResponse
-import com.hansol.ncpdashboard.dto.response.RegionListResponse
-import com.hansol.ncpdashboard.dto.response.ServerImageProductListResponse
-import com.hansol.ncpdashboard.dto.response.ServerProductListResponse
+import com.hansol.ncpdashboard.dto.response.*
 import org.springframework.stereotype.Service
 
 @Service
@@ -21,6 +18,8 @@ class ServerService(
     fun getServerProductList(serverProductListRequest: ServerProductListRequest) = client.get("$SERVER_V2/getServerProductList", ServerProductListResponse::class.java, serverProductListRequest.queryStringify())
 
     fun getRegionList() = client.get("$SERVER_V2/getRegionList", RegionListResponse::class.java)
+
+    fun getInitScriptList() = client.get("$SERVER_V2/getInitScriptList", InitScriptListResponse::class.java)
 
     fun createServerInstances(createServerInstancesRequest: CreateServerInstancesRequest) = client.get("$SERVER_V2/createServerInstances", CreateServerInstancesResponse::class.java, createServerInstancesRequest.queryStringifyWithList())
 
