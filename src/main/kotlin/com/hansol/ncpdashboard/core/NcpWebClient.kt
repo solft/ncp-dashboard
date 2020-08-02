@@ -1,7 +1,7 @@
 package com.hansol.ncpdashboard.core
 
-import com.hansol.ncpdashboard.properties.NcpProperties
-import com.hansol.ncpdashboard.utils.SignatureGenerator
+import com.hansol.ncpdashboard.core.properties.NcpProperties
+import com.hansol.ncpdashboard.core.utils.SignatureGenerator
 import org.springframework.http.HttpMethod
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient

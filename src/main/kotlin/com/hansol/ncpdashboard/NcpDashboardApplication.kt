@@ -1,6 +1,6 @@
 package com.hansol.ncpdashboard
 
-import com.hansol.ncpdashboard.properties.NcpProperties
+import com.hansol.ncpdashboard.core.properties.NcpProperties
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.runApplication

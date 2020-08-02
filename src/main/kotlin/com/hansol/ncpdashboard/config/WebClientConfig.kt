@@ -1,7 +1,7 @@
 package com.hansol.ncpdashboard.config
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.hansol.ncpdashboard.properties.NcpProperties
+import com.hansol.ncpdashboard.core.properties.NcpProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpHeaders

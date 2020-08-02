@@ -1,4 +1,4 @@
-package com.hansol.ncpdashboard.properties
+package com.hansol.ncpdashboard.core.properties
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Configuration

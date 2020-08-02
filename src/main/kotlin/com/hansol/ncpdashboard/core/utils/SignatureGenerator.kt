@@ -1,6 +1,6 @@
-package com.hansol.ncpdashboard.utils
+package com.hansol.ncpdashboard.core.utils
 
-import com.hansol.ncpdashboard.properties.NcpProperties
+import com.hansol.ncpdashboard.core.properties.NcpProperties
 import org.apache.tomcat.util.codec.binary.Base64
 import org.springframework.stereotype.Component
 import javax.crypto.Mac
