@@ -2,6 +2,7 @@ package com.hansol.ncpdashboard.service
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.hansol.ncpdashboard.dto.request.CreateServerInstancesRequest
+import com.hansol.ncpdashboard.dto.request.ServerImageProductListRequest
 import com.hansol.ncpdashboard.dto.request.ServerInstanceRequest
 import com.hansol.ncpdashboard.dto.request.ServerProductListRequest
 import com.hansol.ncpdashboard.dto.response.RegionListResponse
@@ -23,7 +24,7 @@ internal class ServerServiceTest {
 
     @Test
     fun getServerImageProductListTest() {
-        val serverImageProductList = serverService.getServerImageProductList()
+        val serverImageProductList = serverService.getServerImageProductList(ServerImageProductListRequest())
 
         println(serverImageProductList)
     }

@@ -1,9 +1,11 @@
 package com.hansol.ncpdashboard.dto.response
 
-import com.fasterxml.jackson.annotation.JsonRootName
+import com.fasterxml.jackson.annotation.JsonTypeInfo
+import com.fasterxml.jackson.annotation.JsonTypeName
 import com.hansol.ncpdashboard.model.InitScript
 
-@JsonRootName(value = "getInitScriptListResponse")
+@JsonTypeName(value = "getInitScriptListResponse")
+@JsonTypeInfo(include = JsonTypeInfo.As.WRAPPER_OBJECT, use = JsonTypeInfo.Id.NAME)
 data class InitScriptListResponse(
         val requestId: String,
         val returnCode: String,

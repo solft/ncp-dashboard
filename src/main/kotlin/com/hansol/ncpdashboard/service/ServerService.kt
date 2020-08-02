@@ -4,6 +4,7 @@ import com.hansol.ncpdashboard.core.NcpWebClient
 import com.hansol.ncpdashboard.core.utils.queryStringify
 import com.hansol.ncpdashboard.core.utils.queryStringifyWithList
 import com.hansol.ncpdashboard.dto.request.CreateServerInstancesRequest
+import com.hansol.ncpdashboard.dto.request.ServerImageProductListRequest
 import com.hansol.ncpdashboard.dto.request.ServerInstanceRequest
 import com.hansol.ncpdashboard.dto.request.ServerProductListRequest
 import com.hansol.ncpdashboard.dto.response.*
@@ -14,7 +15,7 @@ class ServerService(
         private val client: NcpWebClient
 ) {
 
-    fun getServerImageProductList() = client.get("$SERVER_V2/getServerImageProductList", ServerImageProductListResponse::class.java)
+    fun getServerImageProductList(serverImageProductListRequest: ServerImageProductListRequest) = client.get("$SERVER_V2/getServerImageProductList", ServerImageProductListResponse::class.java, serverImageProductListRequest.queryStringifyWithList())
 
     fun getServerProductList(serverProductListRequest: ServerProductListRequest) = client.get("$SERVER_V2/getServerProductList", ServerProductListResponse::class.java, serverProductListRequest.queryStringify())
 
